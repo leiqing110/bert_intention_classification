@@ -1,0 +1,56 @@
+class: 0,X:1,Y,2,Z:4,f1: 0.33333, precision: 0.50000, recall: 0.25000
+class: 1,X:3,Y,5,Z:7,f1: 0.50000, precision: 0.60000, recall: 0.42857
+class: 2,X:1,Y,1,Z:3,f1: 0.50000, precision: 1.00000, recall: 0.33333
+class: 3,X:0,Y:0,Z:0
+class: 4,X:0,Y:0,Z:0
+class: 5,X:2,Y,5,Z:28,f1: 0.12121, precision: 0.40000, recall: 0.07143
+class: 6,X:0,Y,4,Z:4,f1: 0.00000, precision: 0.00000, recall: 0.00000
+class: 7,X:13,Y,25,Z:18,f1: 0.60465, precision: 0.52000, recall: 0.72222
+class: 8,X:1,Y,4,Z:1,f1: 0.40000, precision: 0.25000, recall: 1.00000
+class: 9,X:185,Y,253,Z:217,f1: 0.78723, precision: 0.73123, recall: 0.85253
+class: 10,X:3,Y,4,Z:4,f1: 0.75000, precision: 0.75000, recall: 0.75000
+class: 11,X:0,Y:0,Z:0
+class: 12,X:0,Y:0,Z:0
+class: 13,X:0,Y:0,Z:0
+class: 14,X:238,Y,263,Z:263,f1: 0.90494, precision: 0.90494, recall: 0.90494
+class: 15,X:328,Y,388,Z:372,f1: 0.86316, precision: 0.84536, recall: 0.88172
+class: 16,X:0,Y:0,Z:4
+class: 17,X:3,Y,8,Z:6,f1: 0.42857, precision: 0.37500, recall: 0.50000
+class: 18,X:0,Y:0,Z:4
+class: 19,X:3,Y,8,Z:23,f1: 0.19355, precision: 0.37500, recall: 0.13043
+class: 20,X:0,Y:1,Z:0
+class: 21,X:0,Y:0,Z:0
+class: 22,X:0,Y:0,Z:0
+class: 23,X:2,Y,2,Z:5,f1: 0.57143, precision: 1.00000, recall: 0.40000
+class: 24,X:0,Y:0,Z:0
+class: 25,X:0,Y:0,Z:0
+class: 26,X:1,Y,1,Z:2,f1: 0.66667, precision: 1.00000, recall: 0.50000
+class: 27,X:0,Y:0,Z:0
+class: 28,X:0,Y:0,Z:0
+class: 29,X:0,Y:0,Z:1
+class: 30,X:0,Y:0,Z:9
+class: 31,X:1,Y,11,Z:1,f1: 0.16667, precision: 0.09091, recall: 1.00000
+class: 32,X:0,Y:0,Z:1
+class: 33,X:0,Y:0,Z:0
+class: 34,X:0,Y:0,Z:1
+class: 35,X:0,Y:3,Z:0
+class: 36,X:3,Y,6,Z:6,f1: 0.50000, precision: 0.50000, recall: 0.50000
+class: 37,X:0,Y:0,Z:0
+class: 38,X:0,Y:0,Z:0
+class: 39,X:0,Y:0,Z:0
+class: 40,X:0,Y:0,Z:0
+class: 41,X:0,Y:0,Z:0
+class: 42,X:0,Y:0,Z:0
+class: 43,X:0,Y,1,Z:2,f1: 0.00000, precision: 0.00000, recall: 0.00000
+class: 44,X:0,Y:2,Z:0
+class: 45,X:0,Y:0,Z:0
+class: 46,X:0,Y:0,Z:0
+class: 47,X:1,Y,2,Z:1,f1: 0.66667, precision: 0.50000, recall: 1.00000
+class: 48,X:0,Y:0,Z:0
+class: 49,X:0,Y:1,Z:0
+class: 50,X:0,Y:0,Z:1
+class: 51,X:0,Y:0,Z:0
+class: 52,X:0,Y:0,Z:0
+class: 53,X:0,Y:0,Z:12
+total: total,X:789,Y,1000,Z:1000,f1: 0.78900, precision: 0.78900, recall: 0.78900
+四大类: total,X:765,Y,933,Z:871,f1: 0.84812, precision: 0.81994, recall: 0.87830
