@@ -72,7 +72,9 @@ class Args:
                             help='是否预测')
         parser.add_argument('--retrain', action='store_true',
                             help='是否加载模型继续训练')
-
+        
+        parser.add_argument('--model_name', type=str, default='best.pt',
+                            help='保存最佳模型')
         return parser
 
     def get_parser(self):

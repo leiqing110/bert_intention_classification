@@ -9,4 +9,4 @@ def write_file(test_outputs,test_targets):
     data = {'label':label,
        'pred':pred}
     df = pd.DataFrame(data)
-    df.to_csv('test_res_entity0816.txt',index=None,sep='\t')
+    df.to_csv('test_result_del_none_entity0819.txt',index=None,sep='\t')

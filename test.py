@@ -4,23 +4,27 @@ from multiprocessing.spawn import import_main_path
 from operator import imod
 import pandas as pd
 import os
-
-output_path = 'output/'
-# 输入test结果
-input_file = 'test_res.txt'
-#所有类别的metric
-output_file = 'output/result_0816.txt'
 label_path = 'data/custom/labels.txt'
+output_path = 'output/'
 
-f_right = open(os.path.join(output_path, 'right_data_0816.txt'), "w", encoding="utf-8")
-f_wrong = open(os.path.join(output_path, 'wrong_data_0816.txt'), "w", encoding="utf-8")
+# 输入test结果
+input_file = 'train_model14_entity0819.txt'
+#所有类别的metric
+output_file = 'output/result_model14_0819.txt'
 
-test_path = 'data/custom/test_data.txt'
-test_df = pd.read_csv(test_path,sep='\t',dtype=str,names=['query','label'])
+
+# 输出文件名称
+f_right = open(os.path.join(output_path, 'right_data_model14_0819.txt'), "w", encoding="utf-8")
+f_wrong = open(os.path.join(output_path, 'wrong_data_model14_0819.txt'), "w", encoding="utf-8")
+
+# test_path = 'data/custom/test_data.txt'
+test_path = 'entity/train_data.txt'
+# test_df = pd.read_csv(test_path,sep='\t',dtype=str,names=['query','label'])
+test_df = pd.read_csv(test_path,sep='\t',dtype=str,names=['query','entity','label'])
 test_list = test_df['query'].tolist()
 
 labels_df = df = pd.read_csv(label_path,sep='\t',dtype=str)
-df = pd.read_csv(input_file,sep='\t',dtype=str)
+df = pd.read_csv(input_file,sep='\t',dtype=str,names=['label','pred'])
 pred_list = df['pred'].to_list()
 true_list = df['label'].to_list()
 
@@ -50,7 +54,10 @@ def w_right_wrong(R,text,true):
         T_mul.append(id2label[str(true[i])])
     T_mul = ",".join(sorted(T_mul))
     if P_mul == T_mul or P_mul in T_mul or (T_mul == '其他-未知意图-未知意图' and P_mul == ''):
-        f_right.write(text + "\t" + P_mul + "\t" + T_mul + "\n")
+        try:
+            f_right.write(text + "\t" + str(P_mul) + "\t" + str(T_mul) + "\n")
+        except Exception as e:
+            print(text,P_mul,T_mul)
     else:
         #预测错误
         f_wrong.write(text + "\t" + P_mul + "\t" + T_mul + "\n")

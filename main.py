@@ -68,7 +68,7 @@ class Trainer:
     def train(self):
         total_step = len(self.train_loader) * self.args.train_epochs
         global_step = 0
-        eval_step = 100
+        eval_step = 50
         best_dev_micro_f1 = 0.0
         for epoch in range(args.train_epochs):
             for train_step, train_data in enumerate(self.train_loader):
@@ -104,7 +104,7 @@ class Trainer:
                         save_path = os.path.join(self.args.output_dir, args.data_name)
                         if not os.path.exists(save_path):
                           os.makedirs(save_path)
-                        checkpoint_path = os.path.join(save_path, 'best.pt')
+                        checkpoint_path = os.path.join(save_path, args.model_name)
                         self.save_ckp(checkpoint, checkpoint_path)
 
     def dev(self):
@@ -192,13 +192,13 @@ datasets = {
 train_files = {
   "cnews": "cnews.train.txt",
   "cpws": "train_data.txt",
-  "custom": "entity/train_entity.txt"
+  "custom": "entity/train_data_entity_del_none.txt"
 }
 
 test_files = {
   "cnews": "cnews.test.txt",
   "cpws": "test_data.txt",
-  "custom": "entity/test_entity.txt"
+  "custom": "entity/test_data_entity_del_none.txt"
 }
 
 def main(args, tokenizer, device):
@@ -230,7 +230,7 @@ def main(args, tokenizer, device):
     optimizer = torch.optim.Adam(params=model.parameters(), lr=args.lr)
     
     if args.retrain:
-      checkpoint_path = './checkpoints/{}/best.pt'.format(args.data_name)
+      checkpoint_path = './checkpoints/{}/{}'.format(args.data_name,args.model_name)
       checkpoint = torch.load(checkpoint_path)
       model.load_state_dict(checkpoint['state_dict'])
       optimizer.load_state_dict(checkpoint['optimizer'])
@@ -248,9 +248,10 @@ def main(args, tokenizer, device):
     # 测试
     if args.do_test:
       logger.info('========进行测试========')
-      checkpoint_path = './checkpoints/{}/best.pt'.format(args.data_name)
+      checkpoint_path = './checkpoints/{}/{}'.format(args.data_name,args.model_name)
       model = trainer.load_model(model, checkpoint_path)
       total_loss, test_outputs, test_targets = trainer.test(model)
+      # 保存测试结果
       write_file(test_outputs,test_targets)
       accuracy, micro_f1, macro_f1 = trainer.get_metrics(test_outputs, test_targets)
       logger.info(
@@ -261,7 +262,7 @@ def main(args, tokenizer, device):
 
     # 预测
     if args.do_predict:
-      checkpoint_path = './checkpoints/{}/best.pt'.format(args.data_name)
+      checkpoint_path = './checkpoints/{}/{}'.format(args.data_name,args.model_name)
       model = trainer.load_model(model, checkpoint_path)
       line = test_dataset[0]
       text = line[0]
