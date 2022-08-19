@@ -1,0 +1,5 @@
+output/*
+data/*
+checkpoints/*
+entity/*
+result/*
